@@ -1,0 +1,4 @@
+<ul class="breadcrumbs">
+    <li class="breadcrumbs__item breadcrumbs__item--active"><a href="#" (click)="clear()">{{'home' | translate}}</a></li>
+    <li *ngFor="let node of breadcrumb; let i = index" class="breadcrumbs__item"><a href="#" (click)="back(i)">{{getTitle(node) | translate}}</a></li>
+</ul>

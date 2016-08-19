@@ -1,0 +1,6 @@
+<div [hidden]="!notifier.title" class="alert" [ngClass]="{ 'alert-success': notifier.state == 1, 'alert-info': notifier.state == 2, 'alert-danger': notifier.state == 3 }" role="alert"> 
+    <i class="fa" [ngClass]="{ 'fa-check': notifier.state == 1, 'fa-info': notifier.state == 2, 'fa-times': notifier.state == 3 }" aria-hidden="true"></i> {{ notifier.title }}
+    <ul *ngFor="let message of notifier.messages" >
+        <li><p>{{ message }}</p></li>
+    </ul>     
+</div>
