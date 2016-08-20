@@ -6,11 +6,12 @@ import { KeyValuePair } from '../key.value.pair';
 
 @Injectable()
 export class RestService {
-    private serverUrl: string = 'http://localhost:63963/wms';
+    private serverUrl: string = 'http://localhost:9000';
   
     private _token: string;
 
     constructor(private http: Http, private translate: TranslateService) {
+        this._token = null;
     }
 
     public set token(value: string) {

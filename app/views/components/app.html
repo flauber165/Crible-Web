@@ -1,4 +1,18 @@
-<main>
+<main [hidden]="userName">
+    <notifier-messages [notifier]="loginNotifier"></notifier-messages>
+    <form [formGroup]="loginForm" (submit)="enter()">
+        <label>{{ 'email' | translate }}:</label>
+        <input type="email" formControlName="email">
+        <control-errors [control]="loginForm.controls.email"></control-errors>
+        <label>{{ 'password' | translate }}:</label>
+        <input type="password" formControlName="password">
+        <control-errors [control]="loginForm.controls.password"></control-errors>
+        <button type="submit">{{ 'enter' | translate }}</button>
+    </form>   
+</main>
+<main [hidden]="!userName">
+    <p>{{ userName }}</p>
+    <button (click)="exit()">{{ 'exit' | translate }}</button>
     <menu></menu>
     <router-outlet></router-outlet>
 </main>
