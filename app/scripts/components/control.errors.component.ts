@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import { Component, Input, Host, SkipSelf } from '@angular/core';
+import { AbstractControl, FormGroupDirective } from '@angular/forms';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { view } from '../view';
 
@@ -7,27 +7,33 @@ import { view } from '../view';
   selector: 'control-errors',
   templateUrl: view('components/control.errors.html'),
 })
-export class ControlErrorsComponent {
-    @Input() public control: AbstractControl;
+export class ControlErrorsComponent  {
+    @Input('control') public control: string;
     public errors: string[];
 
-    constructor(private translate: TranslateService) {
-      
+    constructor(@Host() @SkipSelf() private parent: FormGroupDirective, private translate: TranslateService) {
+
+    }
+
+    public get formControl(): AbstractControl {
+      return this.parent.form.controls[this.control];
     }
 
     public ngOnInit(): void {
       this.errors = [];
       this.update();
-      this.control.valueChanges.subscribe(() => {
+      this.formControl.valueChanges.subscribe(() => {
         this.update();
       });
     }
 
     private update(): void {
       this.errors.length = 0;
-      for (var error in this.control.errors) {
-        if (this.control.errors.hasOwnProperty(error)) {
-          this.errors.push(this.translate.instant(error, this.control.errors[error]));
+      for (var error in this.formControl.errors) {
+        if (this.formControl.errors.hasOwnProperty(error)) {
+          this.translate.get(error, this.formControl.errors[error]).subscribe((text: string) => {
+              this.errors.push(text);
+          });      
         }
       }
     }           

@@ -5,7 +5,6 @@ import { Notifier, NotifierState } from '../notifier';
 
 export class ResponseMap<T> {
     constructor(private translate: TranslateService, private observable: Observable<Response>) {
-
     }
 
     public notifier(notifier: Notifier, isHideTitleSuccess?: boolean): Observable<T> {
@@ -14,7 +13,9 @@ export class ResponseMap<T> {
                 notifier.clear();
                 notifier.state = NotifierState.Success;
                 if (!isHideTitleSuccess) {
-                    notifier.title = this.translate.instant('operationSuccess');                
+                    this.translate.get('operationSuccess').subscribe((text: string) => {
+                        notifier.title = text;
+                    });                                  
                 }
                 return response.text() != '' ? response.json() : null;
             }).catch((response: Response): Observable<any> => {

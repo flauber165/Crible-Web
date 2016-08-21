@@ -3,10 +3,10 @@
     <form [formGroup]="loginForm" (submit)="enter()">
         <label>{{ 'email' | translate }}:</label>
         <input type="email" formControlName="email">
-        <control-errors [control]="loginForm.controls.email"></control-errors>
+        <control-errors control="email"></control-errors>
         <label>{{ 'password' | translate }}:</label>
         <input type="password" formControlName="password">
-        <control-errors [control]="loginForm.controls.password"></control-errors>
+        <control-errors control="password"></control-errors>
         <button type="submit">{{ 'enter' | translate }}</button>
     </form>   
 </main>
