@@ -1,0 +1,9 @@
+{
+    "home": "Início",
+    "enter": "Entrar",
+    "email": "E-mail",
+    "password": "Senha",
+    "exit": "Sair",
+    "operationSuccess": "Operação feita com sucesso.",
+    "required": "O campo é requerido."
+}

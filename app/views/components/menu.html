@@ -1,0 +1,9 @@
+<nav class="box-navigation">
+    <breadcrumb [breadcrumb]="breadcrumb" [getTitle]="getTitleMenu" (notify)="breadcrumbClick($event)" ></breadcrumb>
+    <ul class="navigation">
+        <li [class.navigation__item--active]="isActive(item)" [hidden]="!item.checkPermission" class="navigation__item" *ngFor="let item of currentMenu; let i=index" (click)="itemClick(item, i)">
+            <a>{{ item.title | translate }}</a>
+            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        </li> 
+    </ul>
+</nav>
