@@ -36,5 +36,8 @@
     "typings": "^0.8.1",
     "webpack": "^1.13.1",
     "webpack-stream": "^3.2.0"
-  }
+  },
+  "scripts": {
+   "start": "gulp"
+ }
 }
