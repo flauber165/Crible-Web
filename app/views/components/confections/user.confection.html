@@ -1,0 +1,29 @@
+<section class="section">
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <notifier-messages [notifier]="notifier"></notifier-messages> 
+            <div class="panel-body">
+                <form class="form form-content" [formGroup]="source.formGroup" (ngSubmit)="source.save()">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <label for="name" class="label -required">{{ 'name' | translate }}</label>
+                                <input id="name" type="text" class="form-control" formControlName="name"/>
+                                <control-errors [control]="name"></control-errors>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                            <div class="form-group">
+                                <label for="email" class="label -required">{{ 'email' | translate }}</label>
+                                <input id="email" type="email" class="form-control" formControlName="email"/>
+                                <control-errors [control]="email"></control-errors>          
+                            </div> 
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-default btn-line" (click)="cancel()">{{ 'cancel' | translate }}</button>
+                    <button type="submit" class="btn btn-default btn-fill" [disabled]="!source.formGroup.valid || source.isPending" [ngClass]="{ 'loading': source.isPending }">{{ 'save' | translate }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

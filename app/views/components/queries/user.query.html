@@ -1,0 +1,52 @@
+<section class="section">
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <notifier-messages [notifier]="notifier"></notifier-messages> 
+            <div class="panel-body">
+                <form class="form form-content" novalidate [formGroup]="source.formGroup" (ngSubmit)="source.filter()">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <label class="label -required" for="name">{{ 'name' | translate }}</label>
+                                <input id="name" type="text" class="form-control" formControlName="name"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <label class="label -required" for="email">{{ 'email' | translate }}</label>
+                                <input id="email" type="text" class="form-control" formControlName="email"/>
+                            </div>
+                        </div>                        
+                        <div class="col-xs-12 col-md-9">
+                            <button type="submit" class="btn btn-default btn-fill">{{ 'filter' | translate }}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="infinite-scroll" infinite-scroll [infiniteScrollDistance]="2" [scrollWindow]="false" (scrolled)="source.load()">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{ 'name' | translate }}</th>
+                            <th>{{ 'email' | translate }}</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let entity of source.data">
+                            <td>{{ entity.name }}</td>
+                            <td>{{ entity.email }}</td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-edit" (click)="edit(entity)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ 'edit' | translate }}</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-trush" (click)="delete(entity)"><i class="fa fa-trash-o" aria-hidden="true"></i>{{ 'delete' | translate }}</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
