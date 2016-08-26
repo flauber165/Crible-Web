@@ -1,3 +1,8 @@
 body {
     background-color: cadetblue;
 }
+
+.infinite-scroll {
+    height: 180px !important;
+    overflow: scroll;
+}

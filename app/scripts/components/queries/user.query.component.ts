@@ -24,7 +24,7 @@ export class UserQueryComponent {
 
   constructor(private router: Router, private sourceService: SourceService) {
     this.notifier = new Notifier();
-    this.source = sourceService.createQuery('userQuery', { 
+    this.source = sourceService.createQuery('user/query', { 
       name: null,
       email: null     
     }, this.notifier, 30);

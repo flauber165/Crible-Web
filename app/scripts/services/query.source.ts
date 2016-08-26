@@ -4,10 +4,12 @@ import { Notifier } from '../notifier';
 import { RestService } from './rest.service';
 
 export class QuerySource {
+    private index: string;
     private runningObservable: Observable<any>; 
     public data: any[];
 
     constructor(private restService: RestService, private url: string, public formGroup: FormGroup, private notifier?: Notifier, private start?: number, private amount?: number) {
+        this.index = null;
         this.runningObservable = null;
         this.data = [];
         this.start = start || 10;
@@ -15,6 +17,7 @@ export class QuerySource {
     }
 
     public filter(): void {
+        this.index = null;
         this.runningObservable = null;
         this.data.length = 0;
         this.load(this.start);
@@ -30,7 +33,7 @@ export class QuerySource {
     }
 
     public load(amount?: number): void {
-        var observable = this.restService.post<any>(this.url, Object.assign({ index: this.data.length, count: amount || this.amount }, this.formGroup.value))
+        var observable = this.restService.post<any>(this.url, Object.assign({ index: this.index, count: amount || this.amount }, this.formGroup.value))
             .notifier(this.notifier, true);
 
         if (this.runningObservable) {
@@ -39,8 +42,9 @@ export class QuerySource {
         else {
             this.runningObservable = observable;
 
-            this.runningObservable.subscribe((value: any[]): void => {
-                value.forEach((item: any): void => {
+            this.runningObservable.subscribe((value: any): void => {
+                this.index = value.index;
+                value.data.forEach((item: any): void => {
                     this.data.push(item);             
                 });                
             }, null, () => this.runningObservable = null); 
