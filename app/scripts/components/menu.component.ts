@@ -1,16 +1,13 @@
 import { Component, trigger, state, style, transition, animate, Input, Output, EventEmitter } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
-import { BreadcrumbComponent } from './breadcrumb.component';
+import { TranslateService } from 'ng2-translate/ng2-translate';
 import { view } from '../view';
 import { Menu } from '../menu';
 import { menus } from '../routing'
 
 @Component({
     selector: 'menu',
-    directives:[BreadcrumbComponent],
-    templateUrl: view('components/menu.html'),
-    pipes: [TranslatePipe]
+    templateUrl: view('components/menu.html')
 })
 export class MenuComponent {
 

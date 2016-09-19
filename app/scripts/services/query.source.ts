@@ -23,7 +23,7 @@ export class QuerySource {
     public reset(): void {
         for (var key in this.formGroup.controls) {
             if (this.formGroup.controls.hasOwnProperty(key)) {
-                (<FormControl> this.formGroup.controls[key]).updateValue(null);
+                (<FormControl> this.formGroup.controls[key]).setValue(null);
             }
         }
         this.filter();

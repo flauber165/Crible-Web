@@ -1,12 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { KeyValuePair} from '../key.value.pair'
 import { view } from '../view';
-import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
   selector: 'breadcrumb',
   templateUrl: view('components/breadcrumb.html'),
-  pipes: [TranslatePipe]
 })
 export class BreadcrumbComponent{
     @Input() public breadcrumb: any[];
@@ -16,7 +13,6 @@ export class BreadcrumbComponent{
     constructor() {
         this.notify = new EventEmitter<number>();
     }
-
 
     public back(position : number): void{
         if(position == this.breadcrumb.length - 1){

@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES }  from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { view } from '../view';
 import { Notifier } from '../notifier';
-import { MenuComponent } from './menu.component';
-import { NotifierMessagesComponent } from './notifier.messages.component';
-import { ControlErrorsComponent } from './control.errors.component';
+
 import { RestService } from '../services/rest.service';
 
 @Component({
   selector: 'app',
-  templateUrl: view('components/app.html'),
-  directives: [ ROUTER_DIRECTIVES, MenuComponent, NotifierMessagesComponent, ControlErrorsComponent ],
+  templateUrl: view('components/app.html')
 })
 export class AppComponent {
 

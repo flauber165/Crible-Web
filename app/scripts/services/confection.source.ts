@@ -21,7 +21,7 @@ export class ConfectionSource {
                     if (this.formGroup.controls.hasOwnProperty(key)) {
                         var formControl = <FormControl> this.formGroup.controls[key];
                         if (data.hasOwnProperty(key)) {
-                            formControl.updateValue(data[key]);
+                            formControl.setValue(data[key]);
                         }                            
                     }                  
                 }
@@ -35,7 +35,7 @@ export class ConfectionSource {
     public reset(): void {
         for (var key in this.formGroup.controls) {
             if (this.formGroup.controls.hasOwnProperty(key)) {
-                (<FormControl> this.formGroup.controls[key]).updateValue(null);
+                (<FormControl> this.formGroup.controls[key]).setValue(null);
             }
         }
     }

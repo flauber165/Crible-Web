@@ -1,20 +1,14 @@
 import { Component } from '@angular/core';
 import { Router }    from '@angular/router'
-import { Validators, FormGroupDirective } from '@angular/forms';
-import { TranslatePipe } from 'ng2-translate/ng2-translate';
-import { InfiniteScroll } from 'angular2-infinite-scroll';
+import { Validators } from '@angular/forms';
 import { view } from '../../view';
 import { SourceService } from '../../services/source.service';
 import { QuerySource } from '../../services/query.source';
 import { DeleteSource } from '../../services/delete.source';
-import { ControlErrorsComponent } from '../control.errors.component';
-import { NotifierMessagesComponent } from '../notifier.messages.component';
 import { Notifier } from '../../notifier';
 
 @Component({
   templateUrl: view('components/queries/user.query.html'),
-  pipes: [TranslatePipe],
-  directives: [InfiniteScroll, FormGroupDirective, ControlErrorsComponent, NotifierMessagesComponent],
   providers: [SourceService]
 })
 export class UserQueryComponent {

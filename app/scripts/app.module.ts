@@ -1,15 +1,24 @@
 import { NgModule }      from '@angular/core';
+import { NgClass } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { ReactiveFormsModule } from '@angular/forms';
-import { TranslateService, TranslateModule } from 'ng2-translate/ng2-translate';
+import { ReactiveFormsModule, FormGroupDirective } from '@angular/forms';
+import { TranslateService, TranslateModule, TranslatePipe } from 'ng2-translate/ng2-translate';
+import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { RestService } from './services/rest.service';
-import { AppComponent }  from './components/app.component';
 import { routing } from './routing';
+import { AppComponent }  from './components/app.component';
+import { DefaultComponent }  from './components/default.component';
+import { MenuComponent } from './components/menu.component';
+import { BreadcrumbComponent } from './components/breadcrumb.component';
+import { ControlErrorsComponent } from './components/control.errors.component';
+import { NotifierMessagesComponent } from './components/notifier.messages.component';
+import { UserConfectionComponent } from './components/confections/user.confection.component';
+import { UserQueryComponent } from './components/queries/user.query.component';
 
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule, HttpModule, TranslateModule.forRoot(), routing ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, DefaultComponent, UserConfectionComponent, UserQueryComponent, ControlErrorsComponent, NotifierMessagesComponent, BreadcrumbComponent, MenuComponent, InfiniteScroll ],
   bootstrap:    [ AppComponent ],
   providers: [ RestService ] 
 })
