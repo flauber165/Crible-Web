@@ -5,5 +5,7 @@
     "password": "Password",
     "exit": "Exit",
     "operationSuccess": "Operation done successfully.",    
-    "required": "The field is required."  
+    "required": "The field is required." ,
+    "password-change":"Password change" ,
+    "send":"Send"
 }

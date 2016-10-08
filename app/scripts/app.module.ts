@@ -15,10 +15,11 @@ import { ControlErrorsComponent } from './components/control.errors.component';
 import { NotifierMessagesComponent } from './components/notifier.messages.component';
 import { UserConfectionComponent } from './components/confections/user.confection.component';
 import { UserQueryComponent } from './components/queries/user.query.component';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
 
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule, HttpModule, TranslateModule.forRoot(), routing ],
-  declarations: [ AppComponent, DefaultComponent, UserConfectionComponent, UserQueryComponent, ControlErrorsComponent, NotifierMessagesComponent, BreadcrumbComponent, MenuComponent, InfiniteScroll ],
+  declarations: [ AppComponent, DefaultComponent, UserConfectionComponent, UserQueryComponent, ControlErrorsComponent, NotifierMessagesComponent, BreadcrumbComponent, MenuComponent, InfiniteScroll, PasswordChangeComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ RestService ] 
 })

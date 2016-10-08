@@ -5,5 +5,8 @@
     "password": "Senha",
     "exit": "Sair",
     "operationSuccess": "Operação feita com sucesso.",
-    "required": "O campo é requerido."
+    "required": "O campo é requerido.",
+    "password-change": "Trocar senha",
+    "send":"Enviar"
+
 }

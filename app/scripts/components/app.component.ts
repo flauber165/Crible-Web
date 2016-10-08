@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { view } from '../view';
 import { Notifier } from '../notifier';
+import { Router }    from '@angular/router'
 
 import { RestService } from '../services/rest.service';
 
@@ -15,7 +16,7 @@ export class AppComponent {
   public loginNotifier: Notifier;
   public loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private restService: RestService) {
+  constructor(private formBuilder: FormBuilder, private restService: RestService,private router: Router) {
     this.userName = null;
     this.loginNotifier = new Notifier();
     this.loginForm = formBuilder.group({
@@ -36,5 +37,9 @@ export class AppComponent {
   public exit(): void {
     this.restService.token = null;    
     this.userName = null;
+  }
+
+  public passwordChange(): void {
+    this.router.navigate(['/password-change']);
   }
 }

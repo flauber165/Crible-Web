@@ -13,6 +13,7 @@
 <main [hidden]="!userName">
     <p>{{ userName }}</p>
     <button (click)="exit()">{{ 'exit' | translate }}</button>
+    <button (click)="passwordChange()">{{ 'password-change' | translate }}</button>
     <menu></menu>
     <router-outlet></router-outlet>
 </main>
